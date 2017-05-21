@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cat ~/.ssh/config | grep -e "Host\s".* | awk 'BEGIN {print "Available Hosts:"} {printf "| "$2" |"} END {printf "|\n"}'
+
+echo ""
+
+read -p "Choose server: " server
+
+ssh $server
